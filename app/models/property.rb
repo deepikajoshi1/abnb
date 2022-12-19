@@ -6,10 +6,3 @@ class Property < ApplicationRecord
   validates :state, presence: true
   validates :country, presence: true
 end
-
-t.string "name"
-    t.string "headline"
-    t.text "description"
-    t.string "city"
-    t.string "state"
-    t.string "country"
