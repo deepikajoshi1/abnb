@@ -5,17 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-8.times do {
-  name:
-  headline:
-  description:
-  city:
-  state:
-  country:
+8.times do
+  Property.creatr!{
+  name: Faker::Lorem.word,
+  headline: Faker::Lorem.sentence,
+  description: Faker::Lorem.paragraph,
+  address_1: Faker::Address.street_address,
+  city: Faker::Address.city,
+  state: Faker::Address.state,
+  country: "Singapore"
 }
-t.string "name"
-    t.string "headline"
-    t.text "description"
-    t.string "city"
-    t.string "state"
-    t.string "country"
