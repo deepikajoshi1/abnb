@@ -1,6 +1,7 @@
 <% @listings.in_groups_of(4, false).each do |group| %>
   <div class='row'>
     <% group.each do |listing| %>
+    <%=link_to listing_path(listing) do%>
       <div class='col-md-3'>
         <div class="card">
           <div class="card-body">
@@ -15,6 +16,7 @@
         </div>
       </div>
       </div>
+      <% end %>
       <% end %>
     </div>
   <% end %>
