@@ -1,77 +1,20 @@
-<div class="flex">
-<% @listings.each do|listing|%>
-<div>
-<p><%= listing.name %></p>
-<p><%= listing.headline %></p>
-<p><%= listing.description %></p>
-<p><%= listing.city %></p>
-<p><%= listing.state %></p>
-<p><%= listing.country %></p>
-</div>
-<% end %>
-</div>
-
-
-<!-- Gallery -->
-<div class="row">
-  <div class="col-lg-3 col-md-12 mb-4 mb-lg-0">
-    <img
-      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-      class="w-100 shadow-1-strong rounded mb-4"
+<% @listings.in_groups_of(4, false).each do |group| %>
+  <div class='row'>
+    <% group.each do |listing| %>
+      <div class='col-md-3'>
+        <div class="card">
+          <div class="card-body">
+            <img  class="w-100 shadow-1-strong rounded mb-4"
+      src= <%= listing.image_url %>
       alt="Boat on Calm Water"
     />
+          <h5 class="card-title"><%= listing.city %></h5>
+          <h5 class="card-title"><%=listing.country%></h5>
+          <h6 class="card-title"><%=listing.price%> $</h6>
 
-    <img
-      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="Boat on Calm Water"
-    />
-  </div>
-
-  <div class="col-lg-3 mb-4 mb-lg-0">
-    <img
-      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="Boat on Calm Water"
-    />
-
-    <img
-      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="Boat on Calm Water"
-    />
-  </div>
-
-  <div class="col-lg-3 mb-4 mb-lg-0">
-    <img
-      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="Boat on Calm Water"
-      />
-
-    <img
-
-      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="Boat on Calm Water"
-    />
-
-  </div>
-
-
-  <div class="col-lg-3 mb-4 mb-lg-0">
-    <img
-      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="Boat on Calm Water"
-      />
-
-    <img
-
-      src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/Nature/4-col/img%20(73).webp"
-      class="w-100 shadow-1-strong rounded mb-4"
-      alt="Boat on Calm Water"
-    />
-
-  </div>
-</div>
+        </div>
+      </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>

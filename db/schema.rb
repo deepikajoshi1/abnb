@@ -10,19 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_20_041823) do
+ActiveRecord::Schema[7.0].define(version: 2022_12_20_074950) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "listings", force: :cascade do |t|
     t.string "name"
     t.string "headline"
-    t.string "description"
+    t.text "description"
     t.string "city"
     t.string "state"
     t.string "country"
     t.string "address_line1"
     t.string "address_line2"
+    t.string "image_url"
+    t.string "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
