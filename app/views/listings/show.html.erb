@@ -1,0 +1,17 @@
+<div>
+      <img  class="w-100 shadow-1-strong rounded mb-4"
+      src= <%= @list_var[0].primary_image_url %>
+      alt="Boat on Calm Water"
+    />
+</div>
+Secondary Images
+<div>
+
+<% @secondary_images.each do |image| %>
+      <img  class="w-100 shadow-1-strong rounded mb-4"
+      src= <%= image.listing_image_secondary_url %>
+      alt="Boat on Calm Water"
+    />
+<% end %>
+
+</div>

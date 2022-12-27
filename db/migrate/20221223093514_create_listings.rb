@@ -7,10 +7,11 @@ class CreateListings < ActiveRecord::Migration[7.0]
       t.string :city
       t.string :state
       t.string :country
-      t.string :address_line1
-      t.string :address_line2
-      t.string :image_url
-      t.string :price
+      t.string :address_line_1
+      t.string :address_line_2
+      t.integer :price
+      t.string :primary_image_url
+
       t.timestamps
     end
   end
