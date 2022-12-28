@@ -8,7 +8,7 @@
 # db/seeds.rb
 @listing_count = Listing.count
 if @listing_count.zero?
-  puts 'Creating listings...'
+  puts "Creating listings..."
   8.times do |index|
     Listing.create!(
       name: Faker::Lorem.word,
@@ -23,32 +23,32 @@ if @listing_count.zero?
       price: Faker::Number.number(digits: 3),
     )
   end
-  puts 'Finished!'
+  puts "Finished!"
 end
 
 @user_count = User.count
 if @user_count.zero?
-  puts 'Creating users...'
+  puts "Creating users..."
   4.times do
     User.create!(
       email: Faker::Internet.email,
-      password: Faker::Internet.password
+      password: Faker::Internet.password,
     )
   end
-  puts 'Finished!'
+  puts "Finished!"
 end
 
 @listing_images_count = ListingImage.count
 if @listing_images_count.zero?
-  puts 'Creating listing_images...'
+  puts "Creating listing_images..."
   listing_all = Listing.all
   listing_all.each_with_index do |element, index|
-    for j in 0..3 do
+    for j in 0..3
       ListingImage.create!(
         listing_image_secondary_url: "/images/secondary/#{index}/#{j}.webp",
-        listing: element
+        listing: element,
       )
-      end
+    end
   end
-  puts 'Finished!'
+  puts "Finished!"
 end

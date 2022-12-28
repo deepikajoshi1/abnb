@@ -1,17 +1,22 @@
-<div>
-      <img  class="w-100 shadow-1-strong rounded mb-4"
+<div class="container">
+  <div class="row">
+    <div class="col-6"><img  class="w-100 shadow-1-strong rounded mb-4"
       src= <%= @list_var[0].primary_image_url %>
       alt="Boat on Calm Water"
-    />
+    /></div>
+    <div class="col-6">
+      <% @secondary_images.in_groups_of(2, false).each do |group| %>
+        <div class='row'>
+          <% group.each do |secondary_image| %>
+            <div class='col-md-6'>
+              <img  class="w-100 shadow-1-strong rounded mb-4"
+      src= <%= secondary_image.listing_image_secondary_url %> />
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-Secondary Images
-<div>
-
-<% @secondary_images.each do |image| %>
-      <img  class="w-100 shadow-1-strong rounded mb-4"
-      src= <%= image.listing_image_secondary_url %>
-      alt="Boat on Calm Water"
-    />
-<% end %>
-
+</div>
 </div>
