@@ -1,13 +1,13 @@
-<% @listings.each_slice(4).each do |group| %>
-  <div class='row'>
-    <% group.each do |listing| %>
-      <div class="col-sm-3">
+<div class = "container">
+  <div class="row row-cols-4">
+    <% @listings.each do |listing| %>
+      <div class="col">
         <div class="card">
           <div class="card-body">
             <%=link_to listing_path(listing) do%>
               <img  width="300" height="300"
-                   src= <%= listing.primary_image_url %>
-                   alt="Boat on Calm Water"/>
+                        src= <%= listing.primary_image_url %>
+                        alt="Boat on Calm Water"/>
               <h5 class="card-title"><%= listing.city %></h5>
               <h5 class="card-title"><%=listing.country%></h5>
               <h6 class="card-title"><%=listing.price%> $</h6>
@@ -17,4 +17,4 @@
       </div>
     <% end %>
   </div>
-<% end %>
+</div>

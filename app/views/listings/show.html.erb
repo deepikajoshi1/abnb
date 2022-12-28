@@ -1,4 +1,6 @@
 <div class="container">
+  <h2><%= @list_var[0].headline%></h2>
+  <h5><%= @list_var[0].city%> <%= @list_var[0].state%> <%= @list_var[0].country%></h5>
   <div class="row">
     <div class="col-sm-6">
       <img   width="600" height="600"
@@ -15,6 +17,12 @@
         <% end %>
       </div>
     </div>
+  </div>
+  <div class = "row">
+    <h3>
+      <%= @list_var[0].name%>
+    </h3>
+    <p><%= @list_var[0].description%> </p>
   </div>
 </div>
 </div>
