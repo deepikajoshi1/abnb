@@ -19,8 +19,8 @@ if @listing_count.zero?
       city: Faker::Address.city,
       state: Faker::Address.state,
       country: Faker::Address.country,
-      primary_image_url: '/images/primary/front#{index}.webp',
-      price: Faker::Number.number(digits: 3),
+      primary_image_url: "/images/primary/front#{index}.webp",
+      price: Faker::Number.number(digits: 3)
     )
   end
   puts "Finished!"
@@ -45,7 +45,7 @@ if @listing_images_count.zero?
   listing_all.each_with_index do |element, index|
     for j in 0..3
       ListingImage.create!(
-        listing_image_secondary_url: '/images/secondary/#{index}/#{j}.webp',
+        listing_image_secondary_url: "/images/secondary/#{index}/#{j}.webp",
         listing: element,
       )
     end
@@ -193,87 +193,87 @@ puts "Finished!"
 if @listing_sub_category_count.zero?
   puts "Creating listing_sub_categories..."
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'rerum') ,
+    listing: Listing.find_by(id: 1),
     sub_category: SubCategory.find_by(sub_category_name: 'Shampoo')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'rerum') ,
+    listing: Listing.find_by(id: 1),
     sub_category: SubCategory.find_by(sub_category_name: 'Long-term stays allowed')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'rerum') ,
+    listing: Listing.find_by(id: 1),
     sub_category: SubCategory.find_by(sub_category_name: 'Hot water')
   )
 
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'perspiciatis') ,
+    listing: Listing.find_by(id: 2),
     sub_category: SubCategory.find_by(sub_category_name: 'Hangers')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'perspiciatis') ,
+    listing: Listing.find_by(id: 2),
     sub_category: SubCategory.find_by(sub_category_name: 'Cot')
   )
 
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'autem') ,
+    listing: Listing.find_by(id: 3),
     sub_category: SubCategory.find_by(sub_category_name: 'First aid kit')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'autem') ,
+    listing: Listing.find_by(id: 3),
     sub_category: SubCategory.find_by(sub_category_name: 'Wifi')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'autem') ,
+    listing: Listing.find_by(id: 3),
     sub_category: SubCategory.find_by(sub_category_name: 'Dedicated workspace')
   )
 
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'mollitia') ,
+    listing: Listing.find_by(id: 4),
     sub_category: SubCategory.find_by(sub_category_name: 'Kitchen')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'mollitia') ,
+    listing: Listing.find_by(id: 4),
     sub_category: SubCategory.find_by(sub_category_name: 'Refrigerator')
   )
 
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'quia') ,
+    listing: Listing.find_by(id: 5),
     sub_category: SubCategory.find_by(sub_category_name: 'Cooking basics')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'quia') ,
+    listing: Listing.find_by(id: 5),
     sub_category: SubCategory.find_by(sub_category_name: 'Dishes and silverware')
   )
 
 
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'ea') ,
+    listing: Listing.find_by(id: 6),
     sub_category: SubCategory.find_by(sub_category_name: 'Private entrance')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'ea') ,
+    listing: Listing.find_by(id: 6),
     sub_category: SubCategory.find_by(sub_category_name: 'Private patio or balcony')
   )
 
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'tempora') ,
+    listing: Listing.find_by(id: 7) ,
     sub_category: SubCategory.find_by(sub_category_name: 'Garden')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'tempora') ,
+    listing: Listing.find_by(id: 7) ,
     sub_category: SubCategory.find_by(sub_category_name: 'Free parking on premises')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'tempora') ,
+    listing: Listing.find_by(id: 7) ,
     sub_category: SubCategory.find_by(sub_category_name: 'Private pool')
   )
 
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'molestias') ,
+    listing: Listing.find_by(id: 8) ,
     sub_category: SubCategory.find_by(sub_category_name: 'Long-term stays allowed')
   )
   ListingSubCategory.create!(
-    listing: Listing.find_by(name: 'molestias') ,
+    listing: Listing.find_by(id: 8) ,
     sub_category: SubCategory.find_by(sub_category_name: 'Hair dryer')
   )
 
