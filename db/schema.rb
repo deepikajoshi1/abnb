@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_30_054843) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_06_063848) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -52,6 +52,20 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_054843) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "rating"
+    t.bigint "review_id"
+    t.string "review_type"
+    t.bigint "user_id", null: false
+    t.bigint "listing_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_reviews_on_listing_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
   create_table "sub_categories", force: :cascade do |t|
     t.string "sub_category_name"
     t.bigint "category_id", null: false
@@ -76,5 +90,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_30_054843) do
   add_foreign_key "listing_images", "listings"
   add_foreign_key "listing_sub_categories", "listings"
   add_foreign_key "listing_sub_categories", "sub_categories"
+  add_foreign_key "reviews", "listings"
+  add_foreign_key "reviews", "users"
   add_foreign_key "sub_categories", "categories"
 end
