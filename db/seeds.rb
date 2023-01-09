@@ -6,6 +6,24 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # db/seeds.rb
+
+@review_count = Review.count
+if @review_count.zero?
+  puts "Creating reviews..."
+  Listing.find_each do |listing|
+    (1..5).to_a.sample.times do
+      Review.create!(
+       review: listing,
+       rating: (1..5).to_a.sample,
+       title: Faker::Lorem.word,
+       body: Faker::Lorem.paragraph,
+       user_id: User.all.sample.id
+      )
+    end
+  end
+  puts "Finished!"
+end
+
 @listing_count = Listing.count
 if @listing_count.zero?
   puts "Creating listings..."
