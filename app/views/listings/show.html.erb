@@ -27,3 +27,10 @@
 </div>
 </div>
 </div>
+<p>TEST</p>
+<% @reviews.each do |review| %>
+  <div class='col-6 col-sm-6'>
+    <h2><%= review.title%></h2>
+    <p><%= review.body%></p>
+  </div>
+<% end %>

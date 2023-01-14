@@ -10,9 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_12_23_093617) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_14_015922) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "category_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "listing_images", force: :cascade do |t|
     t.string "listing_image_secondary_url"
@@ -20,6 +26,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_23_093617) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["listing_id"], name: "index_listing_images_on_listing_id"
+  end
+
+  create_table "listing_sub_categories", force: :cascade do |t|
+    t.bigint "listing_id", null: false
+    t.bigint "sub_category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_listing_sub_categories_on_listing_id"
+    t.index ["sub_category_id"], name: "index_listing_sub_categories_on_sub_category_id"
   end
 
   create_table "listings", force: :cascade do |t|
@@ -37,6 +52,27 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_23_093617) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "reviews", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.integer "rating"
+    t.bigint "listing_id", null: false
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["listing_id"], name: "index_reviews_on_listing_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
+  end
+
+  create_table "sub_categories", force: :cascade do |t|
+    t.string "sub_category_name"
+    t.bigint "category_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "description"
+    t.index ["category_id"], name: "index_sub_categories_on_category_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -50,4 +86,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_12_23_093617) do
   end
 
   add_foreign_key "listing_images", "listings"
+  add_foreign_key "listing_sub_categories", "listings"
+  add_foreign_key "listing_sub_categories", "sub_categories"
+  add_foreign_key "reviews", "listings"
+  add_foreign_key "reviews", "users"
+  add_foreign_key "sub_categories", "categories"
 end

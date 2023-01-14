@@ -7,5 +7,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :listings, only: :show
-  get "listing_images", to: "listing_images#index"
+
+
+
 end
