@@ -1,6 +1,8 @@
 <div class="container">
-  <h2><%= @list_var[0].headline%></h2>
-  <h5><%= @list_var[0].city%> <%= @list_var[0].state%> <%= @list_var[0].country%></h5>
+  <div class= "row">
+    <h2><%= @list_var[0].headline%></h2>
+    <h5><%= @list_var[0].city%> <%= @list_var[0].state%> <%= @list_var[0].country%></h5>
+  </div>
   <div class="row">
     <div class="col-sm-6">
       <img   width="600" height="600"
@@ -19,18 +21,18 @@
     </div>
   </div>
   <div class = "row">
-    <h3>
+    <h4>
       <%= @list_var[0].name%>
-    </h3>
+    </h4>
     <p><%= @list_var[0].description%> </p>
   </div>
-</div>
-</div>
-</div>
-<p>TEST</p>
-<% @reviews.each do |review| %>
-  <div class='col-6 col-sm-6'>
-    <h2><%= review.title%></h2>
-    <p><%= review.body%></p>
+  <div class = "row">
+    <h2>Reviews</h2>
+    <% @reviews.each do |review| %>
+      <div class='col-6 col-sm-6'>
+        <h3><%= review.title%></h3>
+        <p><%= review.body%></p>
+      </div>
+    <% end %>
   </div>
-<% end %>
+</div>
