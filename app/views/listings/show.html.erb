@@ -35,4 +35,12 @@
       </div>
     <% end %>
   </div>
+  <div class = "row">
+    <h2>Categories</h2>
+    <% @sub_categories.each do |subcate| %>
+      <div class='col-6 col-sm-6'>
+        <p><%= subcate.sub_category_name%></p>
+      </div>
+    <% end %>
+  </div>
 </div>
