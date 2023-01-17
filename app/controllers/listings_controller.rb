@@ -8,13 +8,15 @@ class ListingsController < ApplicationController
     @reviews = @list_var[0].reviews
     @sub_categories_array = @list_var[0].listing_sub_categories
 
-    # getting sub-categories
+    # getting sub-categories ids
     sub_cat_id = @sub_categories_array.map { |subcategory| subcategory.id }
     @sub_categories = SubCategory.where('id in (?)', sub_cat_id)
 
     puts @sub_categories.inspect
 
-
+    # iterate and get review id
+    # add where clause with where('id in (?)', review_id)
+    # Reviews.includes(:users). where (reviews : {id})
   end
 
   def index
