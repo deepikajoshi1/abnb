@@ -28,16 +28,10 @@
   </div>
   <div class = "row">
     <h2>Reviews</h2>
-    <%= render "reviews" %>
-    <% @reviews.each do |review| %>
-      <div class='col-6 col-sm-6'>
-        <h3><%= review.title%></h3>
-        <p><%= review.body%></p>
-      </div>
-    <% end %>
+    <%= render "reviews", object: @reviews %>
   </div>
   <div class = "row">
-    <h2>Categories</h2>
+    <h2>What this place offers</h2>
     <% @sub_categories.each do |subcate| %>
       <div class='col-6 col-sm-6'>
         <p><%= subcate.sub_category_name%></p>
